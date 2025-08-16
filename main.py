@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         POS_Y = 200
         WIDTH = 720
         HEIGHT = 500
-        self.setGeometry(posX, posY, width, height)
+        self.setGeometry(POS_X, POS_Y, WIDTH, HEIGHT)
         # -- MAIN WINDOW SIZE --- (END)
 
         # -- LAYOUT ---
