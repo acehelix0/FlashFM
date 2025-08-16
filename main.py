@@ -67,7 +67,7 @@ class MainWindow(QMainWindow):
     def openFile(self, modelIndex: QModelIndex):
         if not self.treeModel.isDir(modelIndex):
             QDesktopServices.openUrl(QUrl.fromLocalFile(self.treeModel.filePath(modelIndex)))
-            log(message, "File opened: " + self.treeModel.filePath(modelIndex))
+            log(MESSAGE, "File opened: " + self.treeModel.filePath(modelIndex))
     # --- FILE OPERATIONS --- (END)
 
 # --- EXECUTION ---
