@@ -15,7 +15,7 @@ message = 1
 warning = 2
 error = 3
 
-def log( log_level: int, string: str):
+def log(log_level: int, string: str):
     if log_level == message:
         print("[MESSAGE]", string)
     elif log_level == warning:
