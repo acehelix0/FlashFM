@@ -4,7 +4,7 @@
 This program has only been tested on a Windows 11 machine, on other operating systems, this program might not work well.
 
 ## Prerequisites
-[`python 3.13.7`](https://www.python.org/ftp/python/3.13.6/python-3.13.6-amd64.exe)<br>
+[`python 3.13.6`](https://www.python.org/ftp/python/3.13.6/python-3.13.6-amd64.exe)<br>
 `pyside6 (installed through pip)`
 
 ## How to download and run
@@ -14,3 +14,4 @@ Then you're gonna have to open it or `cd` into it:<br>
 `cd ./FlashFM/` (on Linux) or `cd .\FlashFM\` (on Windows)<br>
 Now, you're gonna have to run it:<br>
 `python main.py`
+
