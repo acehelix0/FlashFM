@@ -1,19 +1,12 @@
 # --- IMPORT ---
 try:
     import sys
-    from colorama import Fore
-except ImportError:
-    print("[ERROR] You do not have \"colorama\" installed in your Python enviroment,",
-          "which is used for making logging pretty")
-    exit(1)
-    
-try:
     from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QFileSystemModel, QTreeView, QWidget
     from PySide6.QtGui import QIcon, QDesktopServices
     from PySide6.QtCore import QDir, QModelIndex, QUrl
 except ImportError:
-    print("[ERROR] You do not have \"PySide6\" installed.", 
-          "Which is used for the GUI of this program.")
+    print("[ERROR] You do not have \"PySide6\" installed in your Python enviroment,", 
+          "which is used for the GUI of this program.")
     exit(1)
 # --- IMPORT --- (END)
 
@@ -24,11 +17,11 @@ error = 3
 
 def log( log_level: int, string: str):
     if log_level == message:
-        print(Fore.BLUE + "[MESSAGE]", string + Fore.RESET)
+        print("[MESSAGE]", string)
     elif log_level == warning:
-        print(Fore.YELLOW + "[WARNING]", string + Fore.RESET)
+        print("[WARNING]", string)
     elif log_level == error:
-        print(Fore.RED + "[ERROR]", string + Fore.RESET)
+        print("[ERROR]", string)
 # --- LOGGING --- (END)
 
 # --- MAIN WINDOW ---
@@ -36,19 +29,23 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("FlashFM")
-        self.setWindowIcon(QIcon("icon.png"))
+        self.setWindowIcon(QIcon("icon.ico"))
 
+        # -- MAIN WINDOW SIZE ---
         posX = 200
         posY = 200
         width = 720
         height = 500
         self.setGeometry(posX, posY, width, height)
+        # -- MAIN WINDOW SIZE --- (END)
 
+        # -- LAYOUT ---
         centralWidget = QWidget()
         boxLayout = QVBoxLayout()
         centralWidget.setLayout(boxLayout)
         self.setCentralWidget(centralWidget)
-
+        
+        # -- TREE MODEL/VIEW ---
         self.treeModel = QFileSystemModel()
         self.treeModel.setRootPath(QDir.rootPath())
 
@@ -58,16 +55,20 @@ class MainWindow(QMainWindow):
         self.treeView.setSortingEnabled(True)
 
         boxLayout.addWidget(self.treeView)
+        # -- TREE MODEL/VIEW --- (END)
+        # -- LAYOUT --- (END)
 
-        # --- CHECKS ---
+        # --- SIGNALS ---
         self.treeView.doubleClicked.connect(self.openFile)
-        # --- CHECKS --- (END)
+        # --- SIGNALS --- (END)
+    # --- MAIN WINDOW --- (END)
 
+    # --- FILE OPERATIONS ---
     def openFile(self, modelIndex: QModelIndex):
         if not self.treeModel.isDir(modelIndex):
             QDesktopServices.openUrl(QUrl.fromLocalFile(self.treeModel.filePath(modelIndex)))
             log(message, "File opened: " + self.treeModel.filePath(modelIndex))
-# --- MAIN WINDOW --- (END)
+    # --- FILE OPERATIONS --- (END)
 
 # --- EXECUTION ---
 if __name__ == '__main__':
