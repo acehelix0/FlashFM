@@ -11,16 +11,16 @@ except ImportError:
 # --- IMPORT --- (END)
 
 # --- LOGGING ---
-const message = 1
-const warning = 2
-const error = 3
+MESSAGE = 1
+WARNING = 2
+ERROR = 3
 
-def log(log_level: int, string: str):
-    if log_level == message:
+def log(logLevel: int, string: str):
+    if logLevel == MESSAGE:
         print("[MESSAGE]", string)
-    elif log_level == warning:
+    elif logLevel == WARNING:
         print("[WARNING]", string)
-    elif log_level == error:
+    elif logLevel == ERROR:
         print("[ERROR]", string)
 # --- LOGGING --- (END)
 
@@ -32,10 +32,10 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon("icon.ico"))
 
         # -- MAIN WINDOW SIZE ---
-        const posX = 200
-        const posY = 200
-        const width = 720
-        const height = 500
+        POS_X = 200
+        POS_Y = 200
+        WIDTH = 720
+        HEIGHT = 500
         self.setGeometry(posX, posY, width, height)
         # -- MAIN WINDOW SIZE --- (END)
 
