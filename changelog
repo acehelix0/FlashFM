@@ -1,13 +1,14 @@
 # Changelog
 
 ## pre-v0.0.1 (15.08.2025)
+
 - Development version of FlashFM.
 - Added a graphical user interface (GUI) using PySide6.
 - Implemented a file system browser with a tree view.
 
-## v0.0.1 (18.08.2025)
+## v0.0.1-alpha (18.08.2025)
 
-- Initial pre-release of FlashFM.
+- Alpha pre-release of FlashFM.
 - Users can create new files and folders, including nested paths.
 - Users can delete files and folders, with protection for system directories.
 - Double-clicking a file opens it with the default application.
