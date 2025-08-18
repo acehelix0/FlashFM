@@ -7,7 +7,7 @@
 
 ## v0.0.1 (18.08.2025)
 
-- Initial release of FlashFM.
+- Initial pre-release of FlashFM.
 - Users can create new files and folders, including nested paths.
 - Users can delete files and folders, with protection for system directories.
 - Double-clicking a file opens it with the default application.
